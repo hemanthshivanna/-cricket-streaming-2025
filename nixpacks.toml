@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ['nodejs_18', 'npm', 'ffmpeg']
+
+[phases.install]
+cmds = ['npm ci']
+
+[phases.build]
+cmds = ['echo "Build phase complete"']
+
+[start]
+cmd = 'node cloud-deploy-railway.js'
