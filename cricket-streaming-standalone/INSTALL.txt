@@ -1,0 +1,35 @@
+🏏 CRICKET TOURNAMENT STREAMING - INSTALLATION
+=============================================
+
+STEP 1: INSTALL NODE.JS
+----------------------
+Visit: https://nodejs.org/
+Download and install the LTS version for your operating system.
+
+STEP 2: EXTRACT AND RUN
+-----------------------
+1. Extract this folder to your desired location
+2. Open terminal/command prompt in this folder
+3. Run the startup script:
+
+   Mac/Linux: ./start-cricket-stream.sh
+   Windows:   start-cricket-stream.bat
+
+STEP 3: FOLLOW ON-SCREEN INSTRUCTIONS
+------------------------------------
+The startup script will:
+- Install dependencies automatically
+- Detect your network settings
+- Guide you through Facebook setup
+- Show OBSBOT configuration details
+- Start the streaming server
+
+STEP 4: CONFIGURE OBSBOT
+-----------------------
+Use the settings shown by the startup script in your OBSBOT app.
+
+STEP 5: START STREAMING
+----------------------
+Open the dashboard at http://localhost:3000 and start streaming!
+
+That's it! The system runs completely independently after setup.

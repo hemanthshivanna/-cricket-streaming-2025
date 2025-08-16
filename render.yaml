@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: cricket-streaming
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm run start:cloud
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: STREAM_ID
+        value: cricket-tournament-2025
+      - key: STREAM_PASSPHRASE
+        value: CricketLive2025!
+      - key: STREAM_TITLE
+        value: Cricket Tournament 2025 - Live Coverage
+      - key: SRT_PORT
+        value: 9999
+    # Set FACEBOOK_STREAM_KEY manually in Render dashboard

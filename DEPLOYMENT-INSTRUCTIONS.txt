@@ -1,0 +1,79 @@
+
+🌐 CRICKET TOURNAMENT CLOUD STREAMING - DEPLOYMENT GUIDE
+=======================================================
+
+Your cloud streaming service is ready to deploy! Follow these steps:
+
+📂 STEP 1: CREATE GITHUB REPOSITORY
+----------------------------------
+1. Go to https://github.com
+2. Click "New repository"
+3. Name: cricket-streaming-2025
+4. Make it Public
+5. Upload all files from this folder
+
+📺 STEP 2: GET FACEBOOK STREAM KEY
+---------------------------------
+1. Go to your Facebook Page
+2. Click "Publishing Tools" → "Live"
+3. Click "Create Live Video"
+4. Select "Use Stream Key"
+5. Copy the PERSISTENT STREAM KEY
+6. Keep this page open during tournament!
+
+🚀 STEP 3: DEPLOY TO RAILWAY (RECOMMENDED)
+------------------------------------------
+1. Go to https://railway.app
+2. Sign up with GitHub
+3. Click "New Project" → "Deploy from GitHub repo"
+4. Select your cricket-streaming repository
+5. Railway auto-deploys in ~2 minutes
+6. Go to Variables tab and add:
+   FACEBOOK_STREAM_KEY=your_stream_key_here
+   STREAM_TITLE=Cricket Tournament 2025 - Live Coverage
+   NODE_ENV=production
+
+🎥 STEP 4: CONFIGURE OBSBOT TAIL AIR
+-----------------------------------
+In OBSBOT app → Settings → Streaming:
+
+Protocol: SRT Caller
+Host: your-app-name.railway.app
+Port: 9999
+Stream ID: cricket-tournament-2025
+Passphrase: CricketLive2025!
+
+Video: 720p30, 3000 kbps
+Audio: AAC, 128 kbps, 44.1 kHz
+
+🧪 STEP 5: TEST YOUR SETUP
+-------------------------
+1. Visit your Railway app URL
+2. Should show "Cricket Tournament - Cloud Streaming"
+3. Start OBSBOT streaming
+4. Check dashboard shows "OBSBOT Input: Connected"
+5. Verify "Facebook Output: Streaming Live"
+
+🔴 STEP 6: GO LIVE
+-----------------
+1. Set Facebook privacy to "Only Me" for testing
+2. Test stream for 2-3 minutes
+3. Switch to "Public" when ready
+4. Tournament is now live globally!
+
+💰 COST: ~$5/month (first month free)
+🕐 SETUP TIME: ~10 minutes total
+📊 MONITORING: Real-time dashboard at your Railway URL
+
+🆘 EMERGENCY BACKUP
+------------------
+If cloud service fails, use Facebook Live mobile app directly from your phone.
+
+✅ READY FOR CRICKET TOURNAMENT!
+Your cloud streaming service will be:
+- Always online (24/7)
+- Auto-reconnecting on network drops
+- Globally accessible
+- Professionally monitored
+
+Need help? Check the dashboard at your Railway URL for real-time status!

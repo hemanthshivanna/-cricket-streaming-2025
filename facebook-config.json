@@ -1,0 +1,50 @@
+{
+  "facebook_live": {
+    "platform": "Facebook Live",
+    "protocol": "RTMPS",
+    "ingest_url": "rtmps://live-api-s.facebook.com:443/rtmp/",
+    "stream_key": "YOUR_PERSISTENT_STREAM_KEY_HERE",
+    "backup_ingest_url": "rtmps://live-api-s.facebook.com:80/rtmp/"
+  },
+  "stream_settings": {
+    "title": "Cricket Tournament 2025 - Live Coverage",
+    "description": "All-day cricket tournament live from the field. Follow the action as teams compete for the championship!",
+    "privacy": "PUBLIC",
+    "test_privacy": "ONLY_ME",
+    "category": "Sports",
+    "tags": ["cricket", "tournament", "live", "sports"]
+  },
+  "output_video": {
+    "codec": "H.264",
+    "profile": "Main",
+    "rate_control": "CBR", 
+    "keyframe_interval_sec": 2,
+    "adaptive_bitrate": {
+      "high_quality": {
+        "resolution": "1920x1080",
+        "framerate": 30,
+        "bitrate_kbps": 4500
+      },
+      "standard_quality": {
+        "resolution": "1280x720",
+        "framerate": 30, 
+        "bitrate_kbps": 2500
+      }
+    }
+  },
+  "output_audio": {
+    "codec": "AAC",
+    "bitrate_kbps": 128,
+    "sample_rate_hz": 44100,
+    "channels": 2
+  },
+  "facebook_setup_instructions": {
+    "step1": "Go to Facebook Page > Publishing Tools > Live",
+    "step2": "Click 'Create Live Video'",
+    "step3": "Select 'Use Stream Key'",
+    "step4": "Copy the Persistent Stream Key",
+    "step5": "Set title and description",
+    "step6": "Choose privacy (ONLY_ME for testing, PUBLIC for live)",
+    "step7": "Keep the page open - don't close until stream ends"
+  }
+}

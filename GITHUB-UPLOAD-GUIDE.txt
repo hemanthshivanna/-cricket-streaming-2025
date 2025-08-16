@@ -1,0 +1,49 @@
+
+📂 HOW TO UPLOAD FILES TO GITHUB
+===============================
+
+OPTION 1: WEB INTERFACE (EASIEST)
+---------------------------------
+1. Go to https://github.com
+2. Sign up/login
+3. Click "New repository"
+4. Name: cricket-streaming-2025
+5. Make it Public
+6. Click "Create repository"
+7. Click "uploading an existing file"
+8. Drag and drop ALL files from this folder
+9. Scroll down, click "Commit changes"
+
+OPTION 2: GITHUB DESKTOP (RECOMMENDED)
+--------------------------------------
+1. Download GitHub Desktop: https://desktop.github.com
+2. Install and login
+3. Click "Create New Repository"
+4. Choose this folder as location
+5. Click "Publish repository"
+6. Make it Public
+
+OPTION 3: COMMAND LINE (ADVANCED)
+---------------------------------
+git init
+git add .
+git commit -m "Initial cricket streaming setup"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/cricket-streaming-2025.git
+git push -u origin main
+
+FILES TO UPLOAD:
+- All .js files (streaming-server.js, cloud-deploy-railway.js, etc.)
+- All .json files (package.json, obsbot-config.json, etc.)
+- All .md files (README.md, etc.)
+- railway.json and render.yaml
+- Dockerfile
+- .gitignore
+- .env.example
+
+DO NOT UPLOAD:
+- node_modules/ folder
+- .env file (if it exists)
+- Any log files
+
+Once uploaded, your repository will be ready for Railway deployment!

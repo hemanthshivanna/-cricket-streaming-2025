@@ -1,0 +1,52 @@
+{
+  "camera_settings": {
+    "model": "OBSBOT Tail Air",
+    "connection": "Phone Hotspot via OBSBOT App"
+  },
+  "srt_output": {
+    "mode": "Caller",
+    "protocol": "SRT",
+    "host": "YOUR_SERVER_IP",
+    "port": 9999,
+    "stream_id": "cricket-tournament-2025",
+    "passphrase": "CricketLive2025!",
+    "latency_ms": 2000
+  },
+  "video_settings": {
+    "high_bandwidth": {
+      "condition": "upload >= 6 Mbps",
+      "resolution": "1920x1080",
+      "framerate": 30,
+      "bitrate_kbps": 5000,
+      "codec": "H.264",
+      "profile": "High",
+      "rate_control": "CBR",
+      "keyframe_interval_sec": 2
+    },
+    "low_bandwidth": {
+      "condition": "upload < 6 Mbps",
+      "resolution": "1280x720", 
+      "framerate": 30,
+      "bitrate_kbps": 3000,
+      "codec": "H.264",
+      "profile": "Main",
+      "rate_control": "CBR",
+      "keyframe_interval_sec": 2
+    }
+  },
+  "audio_settings": {
+    "codec": "AAC",
+    "bitrate_kbps": 128,
+    "sample_rate_hz": 44100,
+    "channels": 2
+  },
+  "obsbot_app_instructions": {
+    "step1": "Connect OBSBOT Tail Air to phone via OBSBOT app",
+    "step2": "Go to Settings > Streaming > SRT",
+    "step3": "Set Mode: Caller",
+    "step4": "Enter Server IP and Port from above",
+    "step5": "Set Stream ID and Passphrase",
+    "step6": "Configure video quality based on bandwidth test",
+    "step7": "Start streaming to server"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "cricket-streaming-server",
+  "version": "1.0.0",
+  "description": "Live streaming server for cricket tournament - SRT to Facebook Live",
+  "main": "streaming-server.js",
+  "scripts": {
+    "start": "node streaming-server.js",
+    "test": "node test-stream.js",
+    "monitor": "node monitor.js",
+    "install-deps": "npm install",
+    "setup": "npm run test && echo 'Setup complete! Update configs and run npm start'"
+  },
+  "dependencies": {
+    "node-media-server": "^2.6.0",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "node-cron": "^3.0.3"
+  },
+  "keywords": ["streaming", "srt", "facebook-live", "cricket", "obsbot"],
+  "author": "Cricket Tournament Organizer",
+  "license": "MIT"
+}
