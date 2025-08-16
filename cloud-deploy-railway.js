@@ -42,15 +42,23 @@ class CloudCricketStreamingServer {
 
     async initialize() {
         try {
+            console.log('🔧 Setting up media server...');
             this.setupMediaServer();
+            
+            console.log('🌐 Setting up web interface...');
             this.setupWebInterface();
+            
+            console.log('📊 Setting up health monitoring...');
             this.setupHealthMonitoring();
+            
+            console.log('☁️ Setting up cloud features...');
             this.setupCloudSpecificFeatures();
             
             console.log('✅ Cloud server initialized successfully');
             return true;
         } catch (error) {
             console.error('❌ Failed to initialize cloud server:', error);
+            console.error('Error details:', error.stack);
             return false;
         }
     }
@@ -265,20 +273,50 @@ class CloudCricketStreamingServer {
 
         // Health check endpoint for cloud platforms
         this.app.get('/health', (req, res) => {
-            const serverUptime = Math.floor((Date.now() - this.streamHealth.serverStartTime) / 1000);
-            res.json({
-                status: 'healthy',
-                serverUptime,
-                streaming: this.isStreaming,
-                inputConnected: this.streamHealth.inputConnected,
-                outputConnected: this.streamHealth.outputConnected,
+            try {
+                const serverUptime = Math.floor((Date.now() - this.streamHealth.serverStartTime) / 1000);
+                res.status(200).json({
+                    status: 'healthy',
+                    serverUptime,
+                    streaming: this.isStreaming,
+                    inputConnected: this.streamHealth.inputConnected,
+                    outputConnected: this.streamHealth.outputConnected,
+                    timestamp: new Date().toISOString(),
+                    port: this.config.port,
+                    environment: this.config.environment
+                });
+            } catch (error) {
+                console.error('Health check error:', error);
+                res.status(500).json({
+                    status: 'error',
+                    message: error.message,
+                    timestamp: new Date().toISOString()
+                });
+            }
+        });
+
+        // Simple status endpoint for quick checks
+        this.app.get('/status', (req, res) => {
+            res.status(200).json({
+                service: 'Cricket Tournament Streaming',
+                status: 'online',
                 timestamp: new Date().toISOString()
             });
         });
 
         // Main dashboard
         this.app.get('/', (req, res) => {
-            res.send(this.generateCloudDashboard());
+            try {
+                res.send(this.generateCloudDashboard());
+            } catch (error) {
+                console.error('Dashboard error:', error);
+                res.status(500).send(`
+                    <h1>🏏 Cricket Tournament Streaming</h1>
+                    <p>Service is starting up...</p>
+                    <p>Status: ${error.message}</p>
+                    <p><a href="/health">Check Health</a></p>
+                `);
+            }
         });
 
         // API endpoints
@@ -541,9 +579,10 @@ Audio: AAC, 128 kbps, 44.1 kHz
         this.nms.run();
         
         // Start web server
-        this.server.listen(this.config.port, () => {
+        this.server.listen(this.config.port, '0.0.0.0', () => {
             console.log(`✅ Cloud server running on port ${this.config.port}`);
             console.log(`🎯 Ready for OBSBOT Tail Air connection!`);
+            console.log(`🌐 Health check available at /health`);
         });
     }
 }
